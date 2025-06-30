@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThreatGuard</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <!-- Header with ThreatGuard title -->
+    <div class="header">
+        <h1>ThreatGuard</h1>
+    </div>
+
+    <div class="container">
+        <form class="card" action="/scam/" method="post" enctype="multipart/form-data" onsubmit="showLoader('fileLoader')">
+            <h2>Malicious Files</h2>
+            <p>Upload a file (PDF/TXT only)</p>
+            <input type="file" name="file" required>
+            <button type="submit">Analyze</button>
+            <div class="loader" id="fileLoader"></div>
+            {% if message %}
+                {# Apply 'safe' class if 'real/legitimate' is in the message, else 'danger' for 'scam' #}
+                <div class="result {{ 'safe' if 'real/legitimate' in message.lower() else 'danger' }}">
+                    {{ message }}
+                </div>
+            {% endif %}
+        </form>
+
+        <form class="card" action="/predict" method="post" onsubmit="showLoader('urlLoader')">
+            <h2>URL Threat Detection</h2>
+            <p>Enter URL</p>
+            <input type="text" name="url" value="{{ input_url or '' }}" required>
+            <button type="submit">Classify</button>
+            <div class="loader" id="urlLoader"></div>
+            {% if predict_class %}
+                <div class="result {{ 'safe' if 'benign' in predict_class.lower() else 'danger' }}">
+                    Prediction: {{ predict_class.capitalize() }}
+                </div>
+            {% endif %}
+        </form>
+    </div>
+
+ <script>
+    function showLoader(id) {
+        document.getElementById(id).style.display = 'block';
+    }
+</script>
+
+
+</body>
+</html>

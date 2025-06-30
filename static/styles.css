@@ -1,0 +1,114 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This centers the header and container horizontally */
+    min-height: 100vh;
+}
+
+.header {
+    width: 100%;
+    background-color: #007bff; /* Blue background for the header */
+    color: white;
+    padding: 15px 0;
+    text-align: center; /* This centers the text inside the header */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Space between header and content */
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5em; /* Large font size for the title */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    width: 90%; /* Make container slightly responsive */
+    margin: 0 auto; /* Centers the container when body is not flex-aligned */
+    padding: 20px;
+}
+
+.card {
+    border: 2px solid #00bfff;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 191, 255, 0.2);
+    transition: 0.3s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 6px 12px rgba(0, 191, 255, 0.3);
+}
+
+.card h2 {
+    margin-top: 0;
+    color: #0077b6;
+}
+
+input[type="file"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #00bfff;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #009acd;
+}
+
+.loader {
+    display: none;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    margin: 10px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.result {
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.result.safe {
+    color: #28a745;
+    border: 2px solid #28a745;
+    background-color: #e6ffed;
+}
+
+.result.danger {
+    color: #dc3545;
+    border: 2px solid #dc3545;
+    background-color: #ffe6e6;
+}

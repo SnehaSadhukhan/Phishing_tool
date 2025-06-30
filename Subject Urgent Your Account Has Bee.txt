@@ -1,0 +1,15 @@
+Subject: Urgent: Your Account Has Been Suspended
+
+Dear Customer,
+
+We have detected unusual activity in your account and it has been temporarily suspended for your protection. 
+
+To restore access, please verify your information by clicking the link below:
+👉 http://secure-login.paypa1.com/login/verify
+
+Failure to do so within 24 hours will result in permanent suspension of your account.
+
+Thank you for your prompt attention to this matter.
+
+Sincerely,  
+PayPal Security Team
